@@ -7,7 +7,9 @@ import com.google.gwt.dom.client.LabelElement;
 import com.google.gwt.dom.client.SpanElement;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.UIObject;
+import com.ippon.formation.gwt.client.domain.bindery.WelcomeRPCAsync;
 import com.ippon.formation.gwt.client.ui.resources.ApplicationResources;
 
 public class BasicUiBinder extends UIObject {
@@ -29,7 +31,20 @@ public class BasicUiBinder extends UIObject {
     public BasicUiBinder() {
         CssResources.INSTANCE.myCss().ensureInjected();
         setElement(uiBinder.createAndBindUi(this));
-        nameSpan.setInnerText("FormationGWT");
+        WelcomeRPCAsync welcome = WelcomeRPCAsync.Util.getInstance();
+        welcome.findWelcomeMessage(new AsyncCallback<String>() {
+
+            @Override
+            public void onSuccess(String result) {
+                nameSpan.setInnerText(result);
+            }
+
+            @Override
+            public void onFailure(Throwable caught) {
+                nameSpan.setInnerText("Error");
+            }
+        });
+
         welcomeLabel.setInnerText(ApplicationResources.i18NMessages.welcome());
     }
 }

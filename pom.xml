@@ -12,6 +12,7 @@
 		<webapp.directory>${project.build.directory}/war</webapp.directory>
 		<output.directory>${webapp.directory}/WEB-INF/classes</output.directory>
 		<project.java.source>${basedir}/src/main/java</project.java.source>
+		<project.webxml>${webapp.directory}/WEB-INF/web.xml</project.webxml>
 
 		<!-- gwt configuration -->
 		<gwt.version>2.5.1</gwt.version>
@@ -19,6 +20,8 @@
 		<gwt.target>welcome.html</gwt.target>
 		<gwt.view.css>com/ippon/formation/gwt/client/ui/view/MyCss.css</gwt.view.css>
 		<gwt.i18n>com.ippon.formation.gwt.client.ui.resources.I18nMessages</gwt.i18n>
+		<gwt.rpc.path>**/domain/bindery/*RPC.java</gwt.rpc.path>
+		<gwt.rpc.scan>com.ippon.formation.gwt.server.rpc</gwt.rpc.scan>
 	</properties>
 
 	<dependencies>
@@ -58,6 +61,12 @@
 						<i18nMessagesBundle>${gwt.i18n}</i18nMessagesBundle>
 					</i18nMessagesBundles>
 					<generateDirectory>${project.java.source}</generateDirectory>
+					<servicePattern>${gwt.rpc.path}</servicePattern>
+					<mergedWebXml>${project.webxml}</mergedWebXml>
+					<packageNamePerModule>
+						<FormationGWT>${gwt.rpc.scan}</FormationGWT>
+					</packageNamePerModule>
+					<scanRemoteServiceRelativePathAnnotation>true</scanRemoteServiceRelativePathAnnotation>
 				</configuration>
 				<executions>
 					<execution>
@@ -66,6 +75,7 @@
 						<goals>
 							<goal>css</goal>
 							<goal>i18n</goal>
+							<goal>generateAsync</goal>
 						</goals>
 					</execution>
 					<execution>
@@ -73,6 +83,7 @@
 						<phase>compile</phase>
 						<goals>
 							<goal>compile</goal>
+							<goal>mergewebxml</goal>
 						</goals>
 					</execution>
 				</executions>
