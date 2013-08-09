@@ -11,9 +11,11 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<webapp.directory>${project.build.directory}/war</webapp.directory>
 		<output.directory>${webapp.directory}/WEB-INF/classes</output.directory>
-		
+
 		<!-- gwt configuration -->
 		<gwt.version>2.5.1</gwt.version>
+		<gwt.module>com.ippon.formation.gwt.Formation_GWT</gwt.module>
+		<gwt.target>welcome.html</gwt.target>
 	</properties>
 
 	<dependencies>
@@ -40,6 +42,21 @@
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>gwt-maven-plugin</artifactId>
 				<version>${gwt.version}</version>
+				<configuration>
+					<hostedWebapp>${webapp.directory}</hostedWebapp>
+					<webappDirectory>${webapp.directory}</webappDirectory>
+					<module>${gwt.module}</module>
+					<runTarget>${gwt.target}</runTarget>
+					<copyWebapp>true</copyWebapp>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>compile</phase>
+						<goals>
+							<goal>compile</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
