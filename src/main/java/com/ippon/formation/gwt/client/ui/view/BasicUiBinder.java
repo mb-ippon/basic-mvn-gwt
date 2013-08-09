@@ -26,6 +26,7 @@ public class BasicUiBinder extends UIObject {
     LabelElement welcomeLabel;
 
     public BasicUiBinder() {
+        CssResources.INSTANCE.myCss().ensureInjected();
         setElement(uiBinder.createAndBindUi(this));
         nameSpan.setInnerText("FormationGWT");
     }

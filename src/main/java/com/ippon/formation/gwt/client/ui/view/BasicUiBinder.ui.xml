@@ -1,15 +1,13 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder">
 <ui:with type="com.ippon.formation.gwt.client.ui.resources.StaticResources" field="res" />
-	<ui:style>
-
-	</ui:style>
+<ui:with type="com.ippon.formation.gwt.client.ui.view.CssResources" field="css" />
 	<div>
-		<div>
+		<div class="{css.myCss.center}">
 			<label ui:field="welcomeLabel">Hello,&nbsp;</label>
-			<span ui:field="nameSpan" />
+			<span class="{css.myCss.important}" ui:field="nameSpan" />
 		</div>
-		<div>
+		<div class="{css.myCss.center}">
 			<img ui:field="imgWelcome" width="780" height="580" src="{res.welcome.getSafeUri}" />
 		</div>
 	</div>
