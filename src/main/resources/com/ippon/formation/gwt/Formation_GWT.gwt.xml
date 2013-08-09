@@ -6,6 +6,7 @@
 	
 	<source path="client" />
 	<source path="shared" />
+	<extend-property values="en" name="locale"/>
 	
 	<entry-point class="com.ippon.formation.gwt.client.FormationGWT" />
 </module>

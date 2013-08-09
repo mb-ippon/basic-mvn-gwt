@@ -4,7 +4,7 @@
 <ui:with type="com.ippon.formation.gwt.client.ui.view.CssResources" field="css" />
 	<div>
 		<div class="{css.myCss.center}">
-			<label ui:field="welcomeLabel">Hello,&nbsp;</label>
+			<label ui:field="welcomeLabel" />
 			<span class="{css.myCss.important}" ui:field="nameSpan" />
 		</div>
 		<div class="{css.myCss.center}">

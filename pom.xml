@@ -18,6 +18,7 @@
 		<gwt.module>com.ippon.formation.gwt.Formation_GWT</gwt.module>
 		<gwt.target>welcome.html</gwt.target>
 		<gwt.view.css>com/ippon/formation/gwt/client/ui/view/MyCss.css</gwt.view.css>
+		<gwt.i18n>com.ippon.formation.gwt.client.ui.resources.I18nMessages</gwt.i18n>
 	</properties>
 
 	<dependencies>
@@ -53,6 +54,9 @@
 					<cssFiles>
 						<cssFile>${gwt.view.css}</cssFile>
 					</cssFiles>
+					<i18nMessagesBundles>
+						<i18nMessagesBundle>${gwt.i18n}</i18nMessagesBundle>
+					</i18nMessagesBundles>
 					<generateDirectory>${project.java.source}</generateDirectory>
 				</configuration>
 				<executions>
@@ -61,6 +65,7 @@
 						<phase>generate-resources</phase>
 						<goals>
 							<goal>css</goal>
+							<goal>i18n</goal>
 						</goals>
 					</execution>
 					<execution>

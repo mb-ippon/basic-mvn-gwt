@@ -8,6 +8,7 @@ import com.google.gwt.dom.client.SpanElement;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.UIObject;
+import com.ippon.formation.gwt.client.ui.resources.ApplicationResources;
 
 public class BasicUiBinder extends UIObject {
 
@@ -29,5 +30,6 @@ public class BasicUiBinder extends UIObject {
         CssResources.INSTANCE.myCss().ensureInjected();
         setElement(uiBinder.createAndBindUi(this));
         nameSpan.setInnerText("FormationGWT");
+        welcomeLabel.setInnerText(ApplicationResources.i18NMessages.welcome());
     }
 }
