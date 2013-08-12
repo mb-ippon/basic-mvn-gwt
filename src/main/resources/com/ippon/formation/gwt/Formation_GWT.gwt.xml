@@ -6,7 +6,12 @@
 	
 	<source path="client" />
 	<source path="shared" />
+	<!-- config i18n -->
 	<extend-property values="en" name="locale"/>
+	<!-- config supr dev mode -->
+	<add-linker name="xsiframe"/>
+	<set-configuration-property name="devModeRedirectEnabled" value="true"/>
+	<set-property name="compiler.useSourceMaps" value="true" />
 	
 	<entry-point class="com.ippon.formation.gwt.client.FormationGWT" />
 </module>

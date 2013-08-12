@@ -49,19 +49,24 @@
 				<artifactId>gwt-maven-plugin</artifactId>
 				<version>${gwt.version}</version>
 				<configuration>
+					<!-- gwt:run config -->
 					<hostedWebapp>${webapp.directory}</hostedWebapp>
 					<webappDirectory>${webapp.directory}</webappDirectory>
 					<module>${gwt.module}</module>
 					<runTarget>${gwt.target}</runTarget>
 					<copyWebapp>true</copyWebapp>
+					<!-- gwt:css config -->
 					<cssFiles>
 						<cssFile>${gwt.view.css}</cssFile>
 					</cssFiles>
+					<!-- gwt:i18n config -->
 					<i18nMessagesBundles>
 						<i18nMessagesBundle>${gwt.i18n}</i18nMessagesBundle>
 					</i18nMessagesBundles>
 					<generateDirectory>${project.java.source}</generateDirectory>
+					<!-- gwt:generateAsync config -->
 					<servicePattern>${gwt.rpc.path}</servicePattern>
+					<!-- gwt:mergewebxml config -->
 					<mergedWebXml>${project.webxml}</mergedWebXml>
 					<packageNamePerModule>
 						<FormationGWT>${gwt.rpc.scan}</FormationGWT>
