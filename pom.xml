@@ -39,6 +39,13 @@
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<type>jar</type>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -72,6 +79,8 @@
 						<FormationGWT>${gwt.rpc.scan}</FormationGWT>
 					</packageNamePerModule>
 					<scanRemoteServiceRelativePathAnnotation>true</scanRemoteServiceRelativePathAnnotation>
+					<!-- gwt:test -->
+					<mode>htmlunit</mode>
 				</configuration>
 				<executions>
 					<execution>
@@ -89,6 +98,13 @@
 						<goals>
 							<goal>compile</goal>
 							<goal>mergewebxml</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>gwt-test</id>
+						<phase>integration-test</phase>
+						<goals>
+							<goal>test</goal>
 						</goals>
 					</execution>
 				</executions>

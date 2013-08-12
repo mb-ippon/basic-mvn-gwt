@@ -13,5 +13,6 @@
 	<set-configuration-property name="devModeRedirectEnabled" value="true"/>
 	<set-property name="compiler.useSourceMaps" value="true" />
 	
+	<servlet path='/welcome' class='com.ippon.formation.gwt.server.rpc.WelcomeRPCImpl'/>
 	<entry-point class="com.ippon.formation.gwt.client.FormationGWT" />
 </module>
